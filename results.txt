@@ -1,0 +1,133 @@
+*****************************
+SGD
+Accuracy: 0.8545454545454545
+Precision: 0.8159509202453987
+Recall: 0.76
+CONFUSION MATRIX:
+[[133  42]
+ [ 30 290]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.82      0.76      0.79       175
+non-fact-checkable       0.87      0.91      0.89       320
+
+          accuracy                           0.85       495
+         macro avg       0.84      0.83      0.84       495
+      weighted avg       0.85      0.85      0.85       495
+
+/home/chequeado/Documentos/Facultad/Trabajo Final/trabajo-final/env/lib/python3.6/site-packages/sklearn/linear_model/_logistic.py:765: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)
+*****************************
+Logistic Regression
+Accuracy: 0.8767676767676768
+Precision: 0.8352941176470589
+Recall: 0.8114285714285714
+CONFUSION MATRIX:
+[[142  33]
+ [ 28 292]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.84      0.81      0.82       175
+non-fact-checkable       0.90      0.91      0.91       320
+
+          accuracy                           0.88       495
+         macro avg       0.87      0.86      0.86       495
+      weighted avg       0.88      0.88      0.88       495
+
+*****************************
+MultinomialNB
+Accuracy: 0.8464646464646465
+Precision: 0.8074534161490683
+Recall: 0.7428571428571429
+CONFUSION MATRIX:
+[[130  45]
+ [ 31 289]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.81      0.74      0.77       175
+non-fact-checkable       0.87      0.90      0.88       320
+
+          accuracy                           0.85       495
+         macro avg       0.84      0.82      0.83       495
+      weighted avg       0.84      0.85      0.84       495
+
+*****************************
+Random Forest
+Accuracy: 0.8424242424242424
+Precision: 0.8540145985401459
+Recall: 0.6685714285714286
+CONFUSION MATRIX:
+[[117  58]
+ [ 20 300]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.85      0.67      0.75       175
+non-fact-checkable       0.84      0.94      0.88       320
+
+          accuracy                           0.84       495
+         macro avg       0.85      0.80      0.82       495
+      weighted avg       0.84      0.84      0.84       495
+
+*****************************
+Bernoulli NB
+Accuracy: 0.8545454545454545
+Precision: 0.8280254777070064
+Recall: 0.7428571428571429
+CONFUSION MATRIX:
+[[130  45]
+ [ 27 293]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.83      0.74      0.78       175
+non-fact-checkable       0.87      0.92      0.89       320
+
+          accuracy                           0.85       495
+         macro avg       0.85      0.83      0.84       495
+      weighted avg       0.85      0.85      0.85       495
+
+*****************************
+RidgeClassifier
+Accuracy: 0.8363636363636363
+Precision: 0.7526881720430108
+Recall: 0.8
+CONFUSION MATRIX:
+[[140  35]
+ [ 46 274]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.75      0.80      0.78       175
+non-fact-checkable       0.89      0.86      0.87       320
+
+          accuracy                           0.84       495
+         macro avg       0.82      0.83      0.82       495
+      weighted avg       0.84      0.84      0.84       495
+
+*****************************
+KNN
+Accuracy: 0.806060606060606
+Precision: 0.7231638418079096
+Recall: 0.7314285714285714
+CONFUSION MATRIX:
+[[128  47]
+ [ 49 271]]
+REPORT:
+                    precision    recall  f1-score   support
+
+    fact-checkable       0.72      0.73      0.73       175
+non-fact-checkable       0.85      0.85      0.85       320
+
+          accuracy                           0.81       495
+         macro avg       0.79      0.79      0.79       495
+      weighted avg       0.81      0.81      0.81       495
