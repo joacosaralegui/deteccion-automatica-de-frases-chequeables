@@ -131,3 +131,4 @@ dmypy.json
 data/images/
 data/models/
 data/tagged_corpus/
+data/stanza_tagged_sentences/*.p
