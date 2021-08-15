@@ -1,13 +1,20 @@
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, cross_val_score, KFold
 from sklearn.metrics import precision_score, recall_score, accuracy_score, roc_auc_score, f1_score, make_scorer
+from sklearn.metrics import precision_score, recall_score, accuracy_score, roc_auc_score, f1_score
+
 import numpy as np
 
 scoring = {
-    'Accuracy': make_scorer(accuracy_score),
-    'Recall': make_scorer(recall_score),
-    'Precision': make_scorer(precision_score),
-    'F-measure': make_scorer(f1_score),
-    'ROC-AUC': make_scorer(roc_auc_score)
+    #'Accuracy': make_scorer(accuracy_score),
+    'FC Recall': make_scorer(recall_score,pos_label="fact-checkable"),
+    'NFC Recall': make_scorer(recall_score,pos_label="non-fact-checkable"),
+    'MACRO Recall': make_scorer(recall_score,average="macro"),
+    'FC Precision': make_scorer(precision_score,pos_label="fact-checkable"),
+    'NFC Precision': make_scorer(precision_score,pos_label="non-fact-checkable"),
+    'MACRO Precision': make_scorer(precision_score,average="macro"),
+    'FC F-measure': make_scorer(f1_score,pos_label="fact-checkable"),
+    'NFC F-measure': make_scorer(f1_score,pos_label="non-fact-checkable"),
+    'MACRO F-measure': make_scorer(f1_score,average="macro"),
 }
 
 def show_most_informative_features(vectorizer,selector, clf, n=50):
@@ -25,15 +32,31 @@ def show_most_informative_features(vectorizer,selector, clf, n=50):
         print("\t%.4f\t%-30s\t\t%.4f\t%-30s" % (coef_1, fn_1, coef_2, fn_2))
 
 def evaluate_classifiers(feats_vector, y, classifiers):
-    print("Evaluation classifiers with a 10 fold cross validation...\n")
-    for name, classifier in classifiers:
-        scores = cross_validate(classifier, feats_vector, y, cv=10, scoring=scoring)
+    print("Evaluation classifiers with a 5 fold cross validation...\n")
+    for classifier in classifiers:
+        #y = [int(f=="fact-checkable") for f in y]
+        scores = cross_validate(classifier, feats_vector, y, scoring=scoring)
 
         print()
-        print("\t" + name)
+        print("\t")
         print("\t-----------------------------")
-        print("\tMétrica      Promedio Desvío")
+        print("\tMétrica              Promedio Desvío")
         for key, value in scores.items():
-            print("\t%-15s\t%0.2f\t%0.2f" % (key, np.mean(value), np.std(value)))
+            print("%0.2f\t%0.2f" % (np.mean(value), np.std(value)))
         print("\t-----------------------------")
         print()
+
+
+def evaluate_pipeline(X, y, pipe):
+    print("Evaluation classifiers with a 10 fold cross validation...\n")
+    cv = KFold(n_splits=(3))
+    #y = [int(f=="fact-checkable") for f in y]
+    scores = cross_validate(pipe, X, y, scoring=scoring)
+
+    print()
+    print("\t-----------------------------")
+    print("\tMétrica      Promedio Desvío")
+    for key, value in scores.items():
+        print("\t%-15s\t%0.2f\t%0.2f" % (key, np.mean(value), np.std(value)))
+    print("\t-----------------------------")
+    print()

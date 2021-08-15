@@ -60,7 +60,7 @@ def show_most_informative_features(vectorizer,selector, clf, n=50):
 		print("\t%.4f\t%-30s\t\t%.4f\t%-30s" % (coef_1, fn_1, coef_2, fn_2))
 
 
-class CustomLinguisticFeatureTransformer(BaseEstimator, TransformerMixin):
+class SpacyFeatureTransformer(BaseEstimator, TransformerMixin):
     def __init__(self):
         self.featurizer = SpacyFeaturizer()
 
@@ -175,7 +175,7 @@ def train_model(featurizer, vectorizer, names, classifiers):
 
 if __name__=="__main__":
 
-	featurizer = CustomLinguisticFeatureTransformer()
+	featurizer = SpacyFeatureTransformer()
 	vectorizer = DictVectorizer()
 
 	names = [

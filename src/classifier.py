@@ -2,7 +2,7 @@ from nltk.tokenize import sent_tokenize
 from math import ceil
 import pickle
 import os
-from train_model import CustomLinguisticFeatureTransformer
+from train_model import SpacyFeatureTransformer
 
 MODEL_PATH = os.path.join('..','data','models', "Bernoulli NB.pkl")
 #MODEL_PATH = os.path.join('..','data','models', "Logistic Regression.pkl")
