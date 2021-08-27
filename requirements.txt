@@ -6,7 +6,6 @@ chardet==4.0.0
 click==7.1.2
 contextvars==2.4
 cymem==2.0.5
-dataclasses==0.8
 idna==2.10
 immutables==0.15
 importlib-metadata==3.10.0

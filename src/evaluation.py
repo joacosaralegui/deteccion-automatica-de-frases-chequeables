@@ -32,6 +32,7 @@ def show_most_informative_features(vectorizer,selector, clf, n=50):
         print("\t%.4f\t%-30s\t\t%.4f\t%-30s" % (coef_1, fn_1, coef_2, fn_2))
 
 def evaluate_classifiers(feats_vector, y, classifiers):
+    print("LENN " + str(len(y)))
     print("Evaluation classifiers with a 5 fold cross validation...\n")
     for classifier in classifiers:
         #y = [int(f=="fact-checkable") for f in y]
