@@ -3,6 +3,7 @@ from sklearn.metrics import precision_score, recall_score, accuracy_score, roc_a
 from sklearn.metrics import precision_score, recall_score, accuracy_score, roc_auc_score, f1_score
 
 import numpy as np
+from scipy.stats import wilcoxon
 
 scoring = {
     #'Accuracy': make_scorer(accuracy_score),
@@ -61,3 +62,23 @@ def evaluate_pipeline(X, y, pipe):
         print("\t%-15s\t%0.2f\t%0.2f" % (key, np.mean(value), np.std(value)))
     print("\t-----------------------------")
     print()
+
+def paired_test(clf1, clf2, X, y):
+    # Calculate p-value
+    data1 = cross_val_score(clf1,X,y,scoring=make_scorer(recall_score,pos_label="fact-checkable"),cv=10)
+    data2 = cross_val_score(clf2,X,y,scoring=make_scorer(recall_score,pos_label="fact-checkable"),cv=10)
+
+    stat, p = wilcoxon(data1, data2)
+
+    print("RECALL STAT: " + str(stat))
+    print("RECALL P: " + str(p))
+
+    data1 = cross_val_score(clf1,X,y,scoring=make_scorer(precision_score,pos_label="fact-checkable"),cv=10)
+    data2 = cross_val_score(clf2,X,y,scoring=make_scorer(precision_score,pos_label="fact-checkable"),cv=10)
+
+    stat, p = wilcoxon(data1, data2)
+
+    print("PRECISION STAT: " + str(stat))
+    print("PRECISION P: " + str(p))
+    return stat, p
+

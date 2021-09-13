@@ -2,10 +2,9 @@ from nltk.tokenize import sent_tokenize
 from math import ceil
 import pickle
 import os
-from train_model import SpacyFeatureTransformer
+#from feature_extraction import EmbeddingsFeatureTransformer
 
-MODEL_PATH = os.path.join('..','data','models', "Bernoulli NB.pkl")
-#MODEL_PATH = os.path.join('..','data','models', "Logistic Regression.pkl")
+MODEL_PATH = os.path.join('..','data','models', "VECT__Logistic Regression.pkl")
 # Load from file
 with open(MODEL_PATH, 'rb') as file:
     model = pickle.load(file)
