@@ -156,10 +156,10 @@ def train_pipelines():
 
 
 if __name__=="__main__":
-    #train_pipelines()
+    train_pipelines()
     
     #compare_models("VECT__Logistic Regression.pkl","COMB__Logistic Regression.pkl") #STAT: 7.0 P: 1
     #compare_models("VECT__Logistic Regression.pkl","COMB__MultinomialNB.pkl") # 
     #compare_models("VECT__SVM.pkl","COMB__SVM.pkl") # STAT: 5.0 P: 0.625
     #compare_models("COMB__SVM.pkl","COMB__Logistic Regression.pkl") # STAT: 0 P: 0.0625
-    compare_models("TRAD__MultinomialNB.pkl","COMB__MultinomialNB.pkl") 
+    #compare_models("TRAD__MultinomialNB.pkl","COMB__MultinomialNB.pkl") 
